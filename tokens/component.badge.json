@@ -1,0 +1,142 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Tier 3: Badge tones. A Badge is passive status (\"Sale\", \"Out of stock\", \"Organic\", \"Delivered\"). Each tone has a light and a dark value; the contrast gate checks every fg on its bg in both themes. Emitted without the `component` prefix: --badge-sale-bg.",
+  "component": {
+    "badge": {
+      "$type": "color",
+      "neutral": {
+        "$description": "Plain information: \"12 oz\", \"Pickup available\".",
+        "bg": {
+          "light": {
+            "$value": "{color.neutral.3}"
+          },
+          "dark": {
+            "$value": "{color.neutral.9}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{color.neutral.10}"
+          },
+          "dark": {
+            "$value": "{color.neutral.2}"
+          }
+        }
+      },
+      "sale": {
+        "$description": "Deals and sale prices: \"Sale\", \"No markups\", \"$15 off\". The measured deal yellow #FFDC23 with dark text. The yellow stays yellow in dark, so dark pins the text to near-black: the light text colour (content.strong) turns white in dark and would be unreadable on yellow.",
+        "bg": {
+          "light": {
+            "$value": "{color.yellow.9}"
+          },
+          "dark": {
+            "$value": "{color.yellow.9}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{content.strong}"
+          },
+          "dark": {
+            "$value": "{color.neutral.12}"
+          }
+        }
+      },
+      "success": {
+        "$description": "Good news: \"Delivered\", \"Many in stock\".",
+        "bg": {
+          "light": {
+            "$value": "{color.green.2}"
+          },
+          "dark": {
+            "$value": "{color.green.12}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{color.green.11}"
+          },
+          "dark": {
+            "$value": "{color.green.7}"
+          }
+        }
+      },
+      "brand": {
+        "$description": "Brand moments: \"Organic\", \"Instacart+ deal\". Kale with Cashew text, as in the dark CTA.",
+        "bg": {
+          "light": {
+            "$value": "{color.kale.2}"
+          },
+          "dark": {
+            "$value": "{color.kale.2}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{color.cashew.2}"
+          },
+          "dark": {
+            "$value": "{color.cashew.2}"
+          }
+        }
+      },
+      "warning": {
+        "$description": "Caution: \"Only 3 left\", \"Limited stock\".",
+        "bg": {
+          "light": {
+            "$value": "{color.amber.8}"
+          },
+          "dark": {
+            "$value": "{color.amber.12}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{color.neutral.10}"
+          },
+          "dark": {
+            "$value": "{color.amber.8}"
+          }
+        }
+      },
+      "danger": {
+        "$description": "Bad news: \"Out of stock\", \"Order cancelled\".",
+        "bg": {
+          "light": {
+            "$value": "{color.red.2}"
+          },
+          "dark": {
+            "$value": "{color.red.12}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{color.red.10}"
+          },
+          "dark": {
+            "$value": "{color.red.6}"
+          }
+        }
+      },
+      "info": {
+        "$description": "Neutral news: \"New\", \"Replaced item\". Our blue, not an Instacart value.",
+        "bg": {
+          "light": {
+            "$value": "{color.blue.2}"
+          },
+          "dark": {
+            "$value": "{color.blue.12}"
+          }
+        },
+        "fg": {
+          "light": {
+            "$value": "{color.blue.10}"
+          },
+          "dark": {
+            "$value": "{color.blue.6}"
+          }
+        }
+      }
+    }
+  }
+}

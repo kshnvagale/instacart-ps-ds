@@ -1,0 +1,31 @@
+/* ---------------------------------------------------------------------------
+ * Component CSS that Tailwind utilities cannot express. Keep this file tiny.
+ *
+ * The only thing allowed here is what a utility cannot do, such as a
+ * @keyframes rule (the theme removes Tailwind's stock animations, so
+ * `animate-spin` does not exist). Every value still comes from a token.
+ * ------------------------------------------------------------------------- */
+
+@layer components {
+  /* Spinner: one full turn of the arc, forever. The duration is a tier-3
+     token (tokens/component.spinner.json). */
+  @keyframes spinner-turn {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  .spinner-turn {
+    transform-origin: center;
+    animation: spinner-turn var(--spinner-duration) var(--motion-easing-linear) infinite;
+  }
+
+  /* Reduced motion: slow the turn down instead of stopping it. A wait
+     indicator that stands still looks like a frozen page, and a slow, small
+     rotation is not the kind of motion that causes discomfort. */
+  @media (prefers-reduced-motion: reduce) {
+    .spinner-turn {
+      animation-duration: calc(var(--spinner-duration) * 3);
+    }
+  }
+}

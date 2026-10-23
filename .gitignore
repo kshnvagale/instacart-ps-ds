@@ -1,0 +1,25 @@
+node_modules/
+dist/
+storybook-static/
+coverage/
+*.log
+.DS_Store
+# Secrets never go in git (TypeSafe/Jev, Brandfetch).
+.env
+.env.*
+*.env
+
+# Visual check screenshots (regenerated).
+visual-check-output/
+examples/*/node_modules/
+
+# Design sync outputs (regenerated).
+ds.css
+.design-sync/sb-reference/
+.ds-sync/
+.design-sync/learnings/
+.design-sync/.cache/
+.design-sync/node_modules
+ds-bundle/
+.claude/worktrees/
+skill-upload/

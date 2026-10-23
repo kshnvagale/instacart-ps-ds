@@ -1,0 +1,343 @@
+/* ---------------------------------------------------------------------------
+ * Instacart -> Tailwind theme bridge. The closed scale.
+ *
+ * `tokens.generated.css` declares every token as a CSS custom property. This
+ * file does one job: it tells Tailwind which of those tokens may become
+ * utilities. Anything not named here does not compile.
+ *
+ * Why closed: an off-scale class (`p-7`, `bg-blue-500`, `shadow-lg`,
+ * `max-w-md`) now emits NO CSS at all. That is the point. It makes off-system
+ * work detectable (the checker's `dead-class` rule compiles each class and
+ * reports the ones that produce nothing), instead of quietly shipping a value
+ * that did not come from the foundations. `closed-scale.test.ts` proves it.
+ *
+ * Only SEMANTIC colours get a utility. The primitive ramps (`--color-green-9`)
+ * are not mapped: availability is permission, and `bg-green-9` would let a
+ * component reach past the roles and break dark mode.
+ * ------------------------------------------------------------------------- */
+
+/* ---- 1. Remove Tailwind's default scales ---------------------------------
+ * A plain (non-inline) `@theme`, BEFORE the bridge, so the bridge adds back
+ * only our names.
+ *
+ *   --color-*: initial   no stock palette (`bg-blue-500`, `text-white`).
+ *                        `transparent`, `current` and `inherit` are keywords,
+ *                        not theme colours, so they still work.
+ *   --spacing: initial   no 0.25rem multiplier, so only the named steps below
+ *                        compile: `p-4` yes, `p-7` never.
+ *   everything else      the same reason: a stock value did not come from the
+ *                        foundations.
+ *
+ * Breakpoints are LITERAL values, not var(): a custom property is invalid in a
+ * media query. They copy tokens/primitive.scales.json (`breakpoint.*`), and
+ * closed-scale.test.ts fails if the two drift apart.
+ * ------------------------------------------------------------------------- */
+@theme {
+  --color-*: initial;
+  --spacing: initial;
+  --spacing-*: initial;
+  --breakpoint-*: initial;
+  --container-*: initial;
+  --text-*: initial;
+  --font-*: initial;
+  --font-weight-*: initial;
+  --tracking-*: initial;
+  --leading-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --text-shadow-*: initial;
+  --blur-*: initial;
+  --ease-*: initial;
+  --animate-*: initial;
+  --aspect-*: initial;
+  --perspective-*: initial;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* ---- 2. dark: --------------------------------------------------------------
+ * Components should rarely need `dark:`: the semantic tokens already change
+ * with the theme. This is for the odd case (an illustration swap).
+ *
+ * It mirrors the token layer's rule exactly, so `dark:` is true exactly when
+ * the dark tokens are in force:
+ *   - `data-theme="dark"` on the element or an ancestor, or
+ *   - the OS prefers dark AND nothing pins `data-theme="light"`.
+ * `:where()` keeps the variant at zero added specificity, like Tailwind's own.
+ * ------------------------------------------------------------------------- */
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *):not(
+        :where([data-theme='light'], [data-theme='light'] *)
+      ) {
+      @slot;
+    }
+  }
+}
+
+/* ---- 3. Type roles ---------------------------------------------------------
+ * `type-<role>` sets size and line height together (and tracking), because
+ * line height depends on size. Use the role that matches what the text IS,
+ * not the size you want. There are no `text-sm` / `text-lg` size utilities:
+ * the roles are the type scale.
+ *
+ *   type-display                      the one big page title
+ *   type-h1, type-h2, type-h3         headings                 (+ weight)
+ *   type-title                        a card or product title  (+ weight)
+ *   type-body-lg, type-body,
+ *   type-body-sm                      running text
+ *   type-caption                      12px, the floor: per-unit price, fine print
+ *   type-label, type-label-lg         control text             (+ weight)
+ *
+ * Running-text roles leave weight alone, so they inherit it. Single-property
+ * utilities sort after these, so `type-h2 font-bold` changes only the weight.
+ * `cn()` knows these groups (src/lib/cn.ts).
+ * ------------------------------------------------------------------------- */
+@utility type-display {
+  font-size: var(--type-display-size);
+  line-height: var(--type-display-leading);
+  letter-spacing: var(--type-display-tracking);
+  font-weight: var(--type-display-weight);
+}
+@utility type-h1 {
+  font-size: var(--type-h1-size);
+  line-height: var(--type-h1-leading);
+  letter-spacing: var(--type-h1-tracking);
+  font-weight: var(--type-h1-weight);
+}
+@utility type-h2 {
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-leading);
+  letter-spacing: var(--type-h2-tracking);
+  font-weight: var(--type-h2-weight);
+}
+@utility type-h3 {
+  font-size: var(--type-h3-size);
+  line-height: var(--type-h3-leading);
+  letter-spacing: var(--type-h3-tracking);
+  font-weight: var(--type-h3-weight);
+}
+@utility type-title {
+  font-size: var(--type-title-size);
+  line-height: var(--type-title-leading);
+  letter-spacing: var(--type-title-tracking);
+  font-weight: var(--type-title-weight);
+}
+@utility type-label {
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-leading);
+  letter-spacing: var(--type-label-tracking);
+  font-weight: var(--type-label-weight);
+}
+@utility type-label-lg {
+  font-size: var(--type-label-lg-size);
+  line-height: var(--type-label-lg-leading);
+  letter-spacing: var(--type-label-lg-tracking);
+  font-weight: var(--type-label-lg-weight);
+}
+@utility type-body-lg {
+  font-size: var(--type-body-lg-size);
+  line-height: var(--type-body-lg-leading);
+  letter-spacing: var(--type-body-lg-tracking);
+}
+@utility type-body {
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  letter-spacing: var(--type-body-tracking);
+}
+@utility type-body-sm {
+  font-size: var(--type-body-sm-size);
+  line-height: var(--type-body-sm-leading);
+  letter-spacing: var(--type-body-sm-tracking);
+}
+@utility type-caption {
+  font-size: var(--type-caption-size);
+  line-height: var(--type-caption-leading);
+  letter-spacing: var(--type-caption-tracking);
+}
+
+/* ---- 4. The bridge: add back ONLY our tokens --------------------------------
+ * `@theme inline` is deliberate. Tailwind then writes `var(--surface-default)`
+ * into the utility instead of a copied value, so `bg-surface` keeps following
+ * data-theme at runtime. A plain `@theme` would freeze the light value.
+ *
+ * Same-name entries (`--radius-md: var(--radius-md)`) are not circular under
+ * `inline`: Tailwind does not emit the variable, it inlines the reference, and
+ * the value still comes from tokens.generated.css.
+ * ------------------------------------------------------------------------- */
+@theme inline {
+  /* ---- type ---- */
+  --font-sans: var(--font-family-sans);
+
+  --font-weight-regular: var(--font-weight-regular);
+  --font-weight-medium: var(--font-weight-medium);
+  --font-weight-semibold: var(--font-weight-semibold);
+  --font-weight-bold: var(--font-weight-bold);
+
+  /* ---- space ----
+     The 4px scale. There is NO 7, 9, 11, 14 or 15: `p-7` compiles to nothing. */
+  --spacing-0: var(--space-0);
+  --spacing-px: var(--space-px);
+  --spacing-0\.5: var(--space-0-5);
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-5: var(--space-5);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-10: var(--space-10);
+  --spacing-12: var(--space-12);
+  --spacing-16: var(--space-16);
+
+  /* Control heights and icon sizes ride the spacing namespace, so
+     `h-control-md`, `min-w-control-sm` and `size-icon-lg` all exist. */
+  --spacing-control-sm: var(--control-height-sm);
+  --spacing-control-md: var(--control-height-md);
+  --spacing-control-lg: var(--control-height-lg);
+  --spacing-control-xl: var(--control-height-xl);
+  --spacing-icon-sm: var(--size-icon-sm);
+  --spacing-icon-md: var(--size-icon-md);
+  --spacing-icon-lg: var(--size-icon-lg);
+
+  /* ---- radius ---- */
+  --radius-none: var(--radius-none);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-full: var(--radius-full);
+
+  /* ---- shadow ----
+     Named by job, so Tailwind's `shadow-sm/md/lg` stay dead. */
+  --shadow-raised: var(--shadow-raised);
+  --shadow-popover: var(--shadow-popover);
+  --shadow-overlay: var(--shadow-overlay);
+  --shadow-inset: var(--shadow-inset);
+
+  /* ---- motion ---- */
+  --ease-standard: var(--motion-easing-standard);
+  --ease-elevated: var(--motion-easing-elevated);
+  --ease-bounce: var(--motion-easing-bounce);
+  --ease-linear: var(--motion-easing-linear);
+
+  /* A bare `transition` or `transition-colors`: our fast step and standard
+     easing, not Tailwind's 150ms. Under reduced motion the token collapses. */
+  --default-transition-duration: var(--motion-duration-fast);
+  --default-transition-timing-function: var(--motion-easing-standard);
+
+  /* ---- z ---- */
+  --z-index-base: var(--z-base);
+  --z-index-raised: var(--z-raised);
+  --z-index-sticky: var(--z-sticky);
+  --z-index-overlay: var(--z-overlay);
+  --z-index-popover: var(--z-popover);
+  --z-index-toast: var(--z-toast);
+  --z-index-tooltip: var(--z-tooltip);
+
+  /* ---- surface ---- `bg-surface`, `bg-surface-subtle`, ... */
+  --color-surface: var(--surface-default);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-active: var(--surface-active);
+  --color-surface-inverse: var(--surface-inverse);
+  --color-surface-brand: var(--surface-brand);
+  --color-surface-brand-subtle: var(--surface-brand-subtle);
+
+  /* ---- content ---- `text-content`, `text-content-muted`, ... */
+  --color-content: var(--content-default);
+  --color-content-strong: var(--content-strong);
+  --color-content-muted: var(--content-muted);
+  --color-content-disabled: var(--content-disabled);
+  --color-content-inverse: var(--content-inverse);
+  --color-content-on-action: var(--content-on-action);
+  --color-content-on-brand: var(--content-on-brand);
+  --color-content-link: var(--content-link);
+  --color-content-link-hover: var(--content-link-hover);
+  --color-content-brand: var(--content-brand);
+
+  /* ---- border ---- `border-border`, `border-border-strong`, ... */
+  --color-border: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-brand: var(--border-brand);
+  --color-focus-ring: var(--focus-ring);
+
+  /* ---- action ----
+     `bg-action-primary hover:bg-action-primary-hover active:bg-action-primary-active
+      text-action-primary-fg border-action-primary-border` */
+  --color-action-primary: var(--action-primary-bg);
+  --color-action-primary-hover: var(--action-primary-bg-hover);
+  --color-action-primary-active: var(--action-primary-bg-active);
+  --color-action-primary-fg: var(--action-primary-fg);
+  --color-action-primary-border: var(--action-primary-border);
+  --color-action-secondary: var(--action-secondary-bg);
+  --color-action-secondary-hover: var(--action-secondary-bg-hover);
+  --color-action-secondary-active: var(--action-secondary-bg-active);
+  --color-action-secondary-fg: var(--action-secondary-fg);
+  --color-action-secondary-border: var(--action-secondary-border);
+  --color-action-tertiary: var(--action-tertiary-bg);
+  --color-action-tertiary-hover: var(--action-tertiary-bg-hover);
+  --color-action-tertiary-active: var(--action-tertiary-bg-active);
+  --color-action-tertiary-fg: var(--action-tertiary-fg);
+  --color-action-tertiary-border: var(--action-tertiary-border);
+  --color-action-danger: var(--action-danger-bg);
+  --color-action-danger-hover: var(--action-danger-bg-hover);
+  --color-action-danger-active: var(--action-danger-bg-active);
+  --color-action-danger-fg: var(--action-danger-fg);
+  --color-action-danger-border: var(--action-danger-border);
+  --color-action-neutral: var(--action-neutral-bg);
+  --color-action-neutral-hover: var(--action-neutral-bg-hover);
+  --color-action-neutral-active: var(--action-neutral-bg-active);
+  --color-action-neutral-fg: var(--action-neutral-fg);
+  --color-action-neutral-border: var(--action-neutral-border);
+  --color-action-disabled: var(--action-disabled-bg);
+  --color-action-disabled-fg: var(--action-disabled-fg);
+  --color-action-disabled-border: var(--action-disabled-border);
+
+  /* ---- status ---- `bg-success text-success-fg border-success-border` */
+  --color-success: var(--status-success-bg);
+  --color-success-fg: var(--status-success-fg);
+  --color-success-border: var(--status-success-border);
+  --color-warning: var(--status-warning-bg);
+  --color-warning-fg: var(--status-warning-fg);
+  --color-warning-border: var(--status-warning-border);
+  --color-danger: var(--status-danger-bg);
+  --color-danger-fg: var(--status-danger-fg);
+  --color-danger-border: var(--status-danger-border);
+  --color-info: var(--status-info-bg);
+  --color-info-fg: var(--status-info-fg);
+  --color-info-border: var(--status-info-border);
+
+  /* ---- badge (tier 3) ---- `bg-badge-sale text-badge-sale-fg` */
+  --color-badge-neutral: var(--badge-neutral-bg);
+  --color-badge-neutral-fg: var(--badge-neutral-fg);
+  --color-badge-sale: var(--badge-sale-bg);
+  --color-badge-sale-fg: var(--badge-sale-fg);
+  --color-badge-success: var(--badge-success-bg);
+  --color-badge-success-fg: var(--badge-success-fg);
+  --color-badge-brand: var(--badge-brand-bg);
+  --color-badge-brand-fg: var(--badge-brand-fg);
+  --color-badge-warning: var(--badge-warning-bg);
+  --color-badge-warning-fg: var(--badge-warning-fg);
+  --color-badge-danger: var(--badge-danger-bg);
+  --color-badge-danger-fg: var(--badge-danger-fg);
+  --color-badge-info: var(--badge-info-bg);
+  --color-badge-info-fg: var(--badge-info-fg);
+
+  /* ---- logo (tier 3) ---- artwork colours for the Logo only:
+     `fill-logo-kale`, `fill-logo-lime`, `fill-logo-carrot`, ... */
+  --color-logo-kale: var(--logo-kale);
+  --color-logo-lime: var(--logo-lime);
+  --color-logo-carrot: var(--logo-carrot);
+  --color-logo-cashew: var(--logo-cashew);
+  --color-logo-white: var(--logo-white);
+}

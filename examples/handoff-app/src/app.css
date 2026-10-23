@@ -1,0 +1,231 @@
+/* ---------------------------------------------------------------------------
+ * Page layout only. Every component's look comes from instacart-ps-ds.
+ *
+ * This app imports the pre-compiled `instacart-ps-ds/standalone.css`, which
+ * holds ONLY the utility classes the components use. Layout classes such as
+ * `grid-cols-4` are not in it. So the layout lives here, and it uses the
+ * system's tokens (CSS variables) for every space, colour, radius and shadow.
+ * No raw values except layout widths.
+ *
+ * An app that runs Tailwind itself can import `instacart-ps-ds/styles.css`
+ * instead and copy the canvas's utility classes across one for one.
+ * ------------------------------------------------------------------------- */
+
+.page {
+  min-height: 100vh;
+  background: var(--surface-subtle);
+}
+
+/* ---- store header ---- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-3) var(--space-8);
+  background: var(--surface-default);
+  border-bottom: var(--border-width-hair) solid var(--border-default);
+}
+.header-store {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+.header-fee {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+.header-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 560px;
+}
+.header-search > :last-child {
+  flex: 1;
+}
+.header-end {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.setting {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ---- main area: shelves + cart ---- */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: var(--space-8);
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+.shelves {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+.shelf {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+/* ---- product tile (composed: there is no ProductCard yet) ---- */
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface-default);
+  border: var(--border-width-hair) solid var(--border-default);
+  border-radius: var(--radius-lg);
+}
+.tile-media {
+  position: relative;
+}
+.tile-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+}
+.tile[data-in-stock='false'] .tile-media img {
+  opacity: 0.5;
+}
+.tile-badges {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+  flex: 1;
+}
+.tile-action {
+  display: flex;
+}
+.tile-action > button {
+  flex: 1;
+}
+
+/* ---- quantity stepper: the component styles itself; the tile only stretches it ---- */
+.tile-action > [data-slot='quantity-stepper'] {
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* ---- cart summary ---- */
+.cart {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background: var(--surface-raised);
+  border: var(--border-width-hair) solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-raised);
+}
+.cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cart-item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+}
+.cart-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+}
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  align-items: flex-start;
+}
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+.cart-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: var(--border-width-hair) solid var(--border-default);
+}
+.cart-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.cart-setting-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+.totals {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2);
+  margin: 0;
+}
+.totals dt,
+.totals dd {
+  margin: 0;
+}
+.totals dd {
+  text-align: right;
+}
+.totals .total {
+  padding-top: var(--space-2);
+  border-top: var(--border-width-hair) solid var(--border-default);
+}
+.cart-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.cart-form > button {
+  width: 100%;
+}

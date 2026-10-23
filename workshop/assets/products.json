@@ -1,0 +1,170 @@
+{
+  "about": "Sample products for the workshop grocery screen. Prices are made up and in USD. `image` is relative to this file's folder. `wasPrice` is set only for sale items. `section` says which row the product belongs in.",
+  "store": {
+    "name": "[Store name]",
+    "deliveryFee": 3.99,
+    "serviceFee": 2.49
+  },
+  "products": [
+    {
+      "id": "banana",
+      "name": "Bananas",
+      "size": "1 bunch, about 2.5 lb",
+      "price": 1.49,
+      "unitPrice": { "amount": 0.6, "unit": "lb" },
+      "inStock": true,
+      "image": "products/banana.png",
+      "badges": [],
+      "section": "favourites"
+    },
+    {
+      "id": "avocado",
+      "name": "Hass Avocado",
+      "size": "1 each",
+      "price": 1.79,
+      "unitPrice": { "amount": 1.79, "unit": "each" },
+      "inStock": true,
+      "image": "products/avocado.png",
+      "badges": ["Organic"],
+      "section": "favourites"
+    },
+    {
+      "id": "strawberries",
+      "name": "Strawberries",
+      "size": "16 oz",
+      "price": 4.99,
+      "unitPrice": { "amount": 0.31, "unit": "oz" },
+      "inStock": false,
+      "image": "products/strawberries.png",
+      "badges": ["Organic"],
+      "section": "favourites"
+    },
+    {
+      "id": "milk",
+      "name": "Whole Milk",
+      "size": "1 gal",
+      "price": 4.29,
+      "unitPrice": { "amount": 0.03, "unit": "fl oz" },
+      "inStock": true,
+      "image": "products/milk.png",
+      "badges": [],
+      "section": "favourites"
+    },
+    {
+      "id": "eggs",
+      "name": "Large Brown Eggs",
+      "size": "12 ct",
+      "price": 5.49,
+      "unitPrice": { "amount": 0.46, "unit": "each" },
+      "inStock": true,
+      "image": "products/eggs.png",
+      "badges": ["Free range"],
+      "section": "favourites"
+    },
+    {
+      "id": "bread",
+      "name": "Sourdough Loaf",
+      "size": "24 oz",
+      "price": 5.99,
+      "unitPrice": { "amount": 0.25, "unit": "oz" },
+      "inStock": true,
+      "image": "products/bread.png",
+      "badges": [],
+      "section": "favourites"
+    },
+    {
+      "id": "spinach",
+      "name": "Baby Spinach",
+      "size": "5 oz",
+      "price": 3.49,
+      "unitPrice": { "amount": 0.7, "unit": "oz" },
+      "inStock": true,
+      "image": "products/spinach.png",
+      "badges": ["Organic"],
+      "section": "favourites"
+    },
+    {
+      "id": "apples",
+      "name": "Honeycrisp Apples",
+      "size": "3 lb bag",
+      "price": 5.99,
+      "wasPrice": 7.99,
+      "unitPrice": { "amount": 2.0, "unit": "lb" },
+      "inStock": true,
+      "image": "products/apples.png",
+      "badges": [],
+      "section": "deals"
+    },
+    {
+      "id": "carrots",
+      "name": "Carrots",
+      "size": "2 lb bag",
+      "price": 1.99,
+      "wasPrice": 2.49,
+      "unitPrice": { "amount": 1.0, "unit": "lb" },
+      "inStock": true,
+      "image": "products/carrots.png",
+      "badges": ["Organic"],
+      "section": "deals"
+    },
+    {
+      "id": "tomatoes",
+      "name": "Vine Tomatoes",
+      "size": "1 lb",
+      "price": 2.99,
+      "wasPrice": 3.99,
+      "unitPrice": { "amount": 2.99, "unit": "lb" },
+      "inStock": true,
+      "image": "products/tomatoes.png",
+      "badges": [],
+      "section": "deals"
+    },
+    {
+      "id": "cheese",
+      "name": "Aged Cheddar",
+      "size": "8 oz",
+      "price": 4.49,
+      "wasPrice": 5.99,
+      "unitPrice": { "amount": 0.56, "unit": "oz" },
+      "inStock": true,
+      "image": "products/cheese.png",
+      "badges": [],
+      "section": "deals"
+    },
+    {
+      "id": "yogurt",
+      "name": "Strawberry Greek Yogurt",
+      "size": "5.3 oz",
+      "price": 1.25,
+      "wasPrice": 1.69,
+      "unitPrice": { "amount": 0.24, "unit": "oz" },
+      "inStock": true,
+      "image": "products/yogurt.png",
+      "badges": [],
+      "section": "deals"
+    },
+    {
+      "id": "coffee",
+      "name": "Medium Roast Ground Coffee",
+      "size": "12 oz",
+      "price": 8.99,
+      "wasPrice": 10.99,
+      "unitPrice": { "amount": 0.75, "unit": "oz" },
+      "inStock": true,
+      "image": "products/coffee.png",
+      "badges": ["Fair trade"],
+      "section": "deals"
+    },
+    {
+      "id": "oranges",
+      "name": "Navel Oranges",
+      "size": "4 lb bag",
+      "price": 5.49,
+      "unitPrice": { "amount": 1.37, "unit": "lb" },
+      "inStock": true,
+      "image": "products/oranges.png",
+      "badges": [],
+      "section": "favourites"
+    }
+  ]
+}

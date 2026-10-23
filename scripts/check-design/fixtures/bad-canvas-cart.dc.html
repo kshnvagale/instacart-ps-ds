@@ -1,0 +1,96 @@
+<!doctype html>
+<!-- A Claude Design canvas artboard (real format, see format-examples/) with planted mistakes. Each `expect:` comment names the rules that must fire on the next line that opens a tag. -->
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Cart</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/instacart/styles.css">
+<link rel="stylesheet" href="ds/instacart/fonts/fonts.css">
+<link rel="stylesheet" href="ds/instacart/_ds_bundle.css">
+<script src="ds/instacart/_ds_bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div data-theme="light" class="bg-surface text-content font-sans min-h-screen w-full">
+<main class="mx-auto w-full max-w-screen-lg px-6 py-8 flex flex-col gap-8">
+
+<header class="flex items-center justify-between gap-4">
+<x-import component-from-global-scope="Instacart.Logo" size="md"></x-import>
+<x-import component-from-global-scope="Instacart.Avatar" name="Maya Chen" size="sm"></x-import>
+</header>
+
+<section aria-labelledby="cart-title" class="flex flex-col gap-6">
+<x-import component-from-global-scope="Instacart.Heading" as="h1" id="cart-title">Your cart</x-import>
+<!-- expect: dead-class -->
+<div class="flex flex-col gap-7">
+<div class="flex items-center gap-4">
+<img src="/products/bananas.jpg" alt="Organic bananas" class="size-16 rounded-md object-cover">
+<div class="flex flex-col gap-1 flex-1 min-w-0">
+<x-import component-from-global-scope="Instacart.Heading" as="h2" variant="title">Organic Bananas</x-import>
+<x-import component-from-global-scope="Instacart.Badge" tone="sale">Sale</x-import>
+<!-- A price written as Text instead of Price. -->
+<!-- expect: price-as-text -->
+<x-import component-from-global-scope="Instacart.Text" variant="body-sm">$3.99</x-import>
+</div>
+<div class="flex items-center gap-2">
+<!-- A raw number field for the item quantity. -->
+<!-- expect: raw-element, quantity-raw-input -->
+<input type="number" aria-label="Quantity" value="2" min="1">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<img src="/products/avocado.jpg" alt="Hass avocado" class="size-16 rounded-md object-cover">
+<div class="flex flex-col gap-1 flex-1 min-w-0">
+<x-import component-from-global-scope="Instacart.Heading" as="h2" variant="title">Hass Avocado</x-import>
+<x-import component-from-global-scope="Instacart.Price" amount="{{avocadoPrice}}"></x-import>
+</div>
+</div>
+</div>
+</section>
+
+<!-- The canvas's visual editor wrote inline colour and spacing. -->
+<!-- expect: inline-style -->
+<section class="flex flex-col gap-4" style="color:#343538;padding:12px">
+<x-import component-from-global-scope="Instacart.Heading" as="h2">Delivery details</x-import>
+<div class="flex flex-col gap-2">
+<label for="email" class="type-label">Email for receipts</label>
+<!-- Lowercase `autocomplete`: the prop is autoComplete, written auto-complete in a canvas. -->
+<!-- expect: prop-type -->
+<x-import component-from-global-scope="Instacart.Input" id="email" type="email" autocomplete="email"></x-import>
+</div>
+<div class="flex items-center gap-2">
+<!-- Saves the moment it is flipped: that is a Switch. -->
+<!-- expect: checkbox-instant -->
+<x-import component-from-global-scope="Instacart.Checkbox" id="sub-alerts" on-checked-change="{{saveSubstitutionAlerts}}"></x-import>
+<label for="sub-alerts" class="type-body-sm">Substitution alerts</label>
+</div>
+</section>
+
+<div class="flex flex-col gap-2">
+<!-- `class` on an x-import replaces the component's own classes: it renders unstyled. -->
+<!-- expect: component-class, vague-label -->
+<x-import component-from-global-scope="Instacart.Button" size="xl" class="w-full">OK</x-import>
+<x-import component-from-global-scope="Instacart.Text" variant="caption" tone="muted">*Service and other fees apply.</x-import>
+</div>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+avocadoPrice: 1.49,
+saveSubstitutionAlerts: (checked) => fetch('/api/me/settings/substitution-alerts', { method: 'PUT', body: JSON.stringify({ on: checked }) }),
+};
+}
+}
+</script>
+</body>
+</html>

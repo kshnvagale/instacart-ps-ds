@@ -1,0 +1,12 @@
+/* ---------------------------------------------------------------------------
+ * DM Sans, self-hosted. It stands in for Instacart Sans, which is proprietary
+ * (brand/brand.md, Decisions).
+ *
+ * Self-hosted through @fontsource-variable on purpose: the font FILES ship
+ * with the package, so it renders the same in Storybook, in an app and in a
+ * synced design tool. A remote stylesheet (`@import url(https://fonts...)`)
+ * does not travel with the CSS.
+ *
+ * The variable font covers every weight we allow (400, 500, 600, 700).
+ * ------------------------------------------------------------------------- */
+@import '@fontsource-variable/dm-sans';

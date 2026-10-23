@@ -1,0 +1,10 @@
+/* Storybook's own stylesheet. NOT what consumers import.
+ *
+ * Storybook has no host app to bring Tailwind, so it compiles Tailwind here,
+ * plus the package stylesheet. `@source` points at src/ so every utility a
+ * component or story uses is compiled. */
+
+@import 'tailwindcss';
+@import '../src/styles/instacart.css';
+
+@source '../src';

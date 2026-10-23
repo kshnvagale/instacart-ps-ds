@@ -1,0 +1,44 @@
+/* ---------------------------------------------------------------------------
+ * Base layer. Deliberately tiny: a design system's reset is the one place where
+ * "while we're here" turns into a global regression. Every rule says why.
+ * ------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* The page reads the semantic tokens, so it follows data-theme like
+     everything else. */
+  body {
+    margin: 0;
+    font-family: var(--font-family-sans);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-leading);
+    color: var(--content-default);
+    background: var(--surface-default);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* The UA's 1em margin on <p> is invisible in normal flow (margins collapse),
+     then adds to the gap the moment a parent becomes flex or grid. The spacing
+     scale should be the only thing that decides spacing. */
+  p {
+    margin: 0;
+  }
+
+  /* One focus treatment for the whole system, so no component invents its own. */
+  :focus-visible {
+    outline: var(--focus-width) solid var(--focus-ring);
+    outline-offset: var(--focus-offset);
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+}

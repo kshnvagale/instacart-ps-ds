@@ -1,0 +1,21 @@
+/* ---------------------------------------------------------------------------
+ * Build input for `dist/instacart.standalone.css` (npm run build:css).
+ *
+ * The drop-in stylesheet for an app that does NOT use Tailwind: Tailwind,
+ * plus our tokens and theme, plus ONLY the utility classes our components
+ * use. `source(none)` turns off Tailwind's automatic scan of the whole
+ * project, so nothing else leaks in.
+ *
+ * Do not import this file from app code; import the compiled
+ * `instacart-ps-ds/standalone.css` instead.
+ * ------------------------------------------------------------------------- */
+
+@import 'tailwindcss' source(none);
+@import './instacart.css';
+
+/* Only our own components. Stories, tests and story fixtures are not shipped,
+   so their classes must not be either. */
+@source '../components';
+@source not '../components/**/*.stories.tsx';
+@source not '../components/**/*.test.tsx';
+@source not '../components/**/_fixtures';

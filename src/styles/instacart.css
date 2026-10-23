@@ -1,0 +1,29 @@
+/* ---------------------------------------------------------------------------
+ * instacart-ps-ds: the stylesheet an app imports.
+ *
+ *   @import 'tailwindcss';
+ *   @import 'instacart-ps-ds/styles.css';
+ *
+ * It deliberately does NOT import Tailwind itself. An app that uses Tailwind
+ * already has it, and a second copy brings a second preflight and a second
+ * set of @layer rules that fight the first. What this file adds to YOUR
+ * Tailwind build: the tokens, the closed-scale theme (which removes Tailwind's
+ * defaults and adds back only ours), the base layer and the font.
+ *
+ * An app that does not use Tailwind imports `instacart-ps-ds/standalone.css`
+ * instead: the same thing, with the utilities pre-compiled.
+ *
+ * `@source` makes Tailwind scan this package's built components for the
+ * classes they use. It resolves relative to THIS file, so it finds
+ * `dist/components` wherever the package is installed. `*.js` only, so type
+ * declarations are not scanned; in `src/` it matches nothing, and Storybook
+ * and the standalone build declare their own sources.
+ * ------------------------------------------------------------------------- */
+
+@import './fonts.css';
+@import './tokens.generated.css';
+@import './theme.css';
+@import './base.css';
+@import './components.css';
+
+@source '../components/**/*.js';

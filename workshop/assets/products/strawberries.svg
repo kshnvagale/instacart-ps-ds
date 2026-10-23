@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"><rect width="400" height="400" fill="#F6F3EC"/><ellipse cx="200" cy="335" rx="130" ry="14" fill="#000" opacity="0.06"/>
+    <g>
+      <path d="M130 150 C80 150 80 210 105 250 C120 275 135 290 140 300 C150 285 170 270 185 245 C205 205 190 150 130 150 Z" fill="#E0393E"/>
+      <path d="M110 150 l20 -22 l14 18 l20 -14 l2 22 Z" fill="#3E8E2E"/>
+      <g fill="#F7D774"><circle cx="118" cy="190" r="3"/><circle cx="145" cy="185" r="3"/><circle cx="165" cy="205" r="3"/><circle cx="125" cy="225" r="3"/><circle cx="152" cy="235" r="3"/><circle cx="140" cy="265" r="3"/></g>
+    </g>
+    <g>
+      <path d="M260 120 C200 120 200 190 230 235 C247 262 262 280 268 292 C280 275 300 258 316 232 C340 188 322 120 260 120 Z" fill="#C8262E"/>
+      <path d="M238 120 l22 -24 l15 20 l22 -16 l2 24 Z" fill="#2F7A24"/>
+      <g fill="#F7D774"><circle cx="245" cy="165" r="3"/><circle cx="275" cy="158" r="3"/><circle cx="300" cy="180" r="3"/><circle cx="252" cy="205" r="3"/><circle cx="285" cy="210" r="3"/><circle cx="268" cy="250" r="3"/></g>
+    </g></svg>

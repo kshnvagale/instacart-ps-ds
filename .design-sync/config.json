@@ -1,0 +1,12 @@
+{
+  "shape": "storybook",
+  "pkg": "instacart-ps-ds",
+  "entry": "./dist/index.js",
+  "globalName": "Instacart",
+  "storybookConfigDir": ".storybook",
+  "buildCmd": "npm run build && npx @tailwindcss/cli -i .design-sync/ds.source.css -o ds.css",
+  "cssEntry": "ds.css",
+  "extraFonts": ["./node_modules/@fontsource-variable/dm-sans/wght.css"],
+  "readmeHeader": ".design-sync/conventions.md",
+  "storybookStatic": ".design-sync/sb-reference"
+}

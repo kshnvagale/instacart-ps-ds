@@ -1,0 +1,19 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Tier 3: the Link underline. Emitted without the `component` prefix: --link-underline-offset.",
+  "component": {
+    "link": {
+      "underline": {
+        "$type": "dimension",
+        "thickness": {
+          "$value": "{borderWidth.hair}",
+          "$description": "Ours: a hairline underline, the same weight as a card border."
+        },
+        "offset": {
+          "$value": "{focus.offset}",
+          "$description": "Ours: the gap between the text and its underline, so it clears descenders."
+        }
+      }
+    }
+  }
+}

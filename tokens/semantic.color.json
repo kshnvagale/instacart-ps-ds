@@ -1,0 +1,570 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Semantic colour roles: the ONLY colours components use. Each role has a light and a dark value. Light values follow the live site (brand/brand.md). Instacart has no dark mode, so every dark value is OURS: cool dark greys for surfaces and Lime for actions (brand/brand.md, Decisions). Every text/background pair here is checked by the contrast gate in scripts/build-tokens.mjs, in both themes.",
+  "surface": {
+    "$type": "color",
+    "default": {
+      "$description": "The page and plain panels. White in light (measured page and card background).",
+      "light": {
+        "$value": "{color.neutral.1}"
+      },
+      "dark": {
+        "$value": "{color.neutral.11}"
+      }
+    },
+    "subtle": {
+      "$description": "A quiet fill: search field, quantity field, filter chips (measured #F6F7F8).",
+      "light": {
+        "$value": "{color.neutral.2}"
+      },
+      "dark": {
+        "$value": "{color.neutral.10}"
+      }
+    },
+    "raised": {
+      "$description": "Cards, popovers, menus. Same white as the page in light (borders separate them); one step lighter than the page in dark, because shadows do not show on dark.",
+      "light": {
+        "$value": "{color.neutral.1}"
+      },
+      "dark": {
+        "$value": "{color.neutral.10}"
+      }
+    },
+    "hover": {
+      "$description": "A row or plain surface being hovered.",
+      "light": {
+        "$value": "{color.neutral.2}"
+      },
+      "dark": {
+        "$value": "{color.neutral.10}"
+      }
+    },
+    "active": {
+      "$description": "A row or plain surface being pressed or selected.",
+      "light": {
+        "$value": "{color.neutral.3}"
+      },
+      "dark": {
+        "$value": "{color.neutral.9}"
+      }
+    },
+    "inverse": {
+      "$description": "A small dark-on-light flip: a tooltip, a toast.",
+      "light": {
+        "$value": "{color.neutral.10}"
+      },
+      "dark": {
+        "$value": "{color.neutral.2}"
+      }
+    },
+    "brand": {
+      "$description": "Kale: hero bands and promo banners (measured). The same in both themes.",
+      "light": {
+        "$value": "{color.kale.2}"
+      },
+      "dark": {
+        "$value": "{color.kale.2}"
+      }
+    },
+    "brandSubtle": {
+      "$description": "A warm brand surface: Cashew in light (brand banners only, never UI chrome). Dark kale in dark (ours).",
+      "light": {
+        "$value": "{color.cashew.2}"
+      },
+      "dark": {
+        "$value": "{color.kale.3}"
+      }
+    }
+  },
+  "content": {
+    "$type": "color",
+    "default": {
+      "$description": "Body text (measured #343538, the most common text colour).",
+      "light": {
+        "$value": "{color.neutral.9}"
+      },
+      "dark": {
+        "$value": "{color.neutral.3}"
+      }
+    },
+    "strong": {
+      "$description": "Headings and emphasis (measured #242529).",
+      "light": {
+        "$value": "{color.neutral.10}"
+      },
+      "dark": {
+        "$value": "{color.neutral.1}"
+      }
+    },
+    "muted": {
+      "$description": "Secondary text. Light uses #56595E (measured on the product page), not #72767E, because #72767E is only 4.2:1 on the subtle fill. Dark uses #C7C8CD, because #8F939B is only 4.0:1 on a pressed dark row.",
+      "light": {
+        "$value": "{color.neutral.8}"
+      },
+      "dark": {
+        "$value": "{color.neutral.5}"
+      }
+    },
+    "disabled": {
+      "$description": "Disabled text. Not contrast-gated: WCAG exempts disabled controls.",
+      "light": {
+        "$value": "{color.neutral.6}"
+      },
+      "dark": {
+        "$value": "{color.neutral.8}"
+      }
+    },
+    "inverse": {
+      "$description": "Text on surface.inverse.",
+      "light": {
+        "$value": "{color.neutral.1}"
+      },
+      "dark": {
+        "$value": "{color.neutral.11}"
+      }
+    },
+    "onAction": {
+      "$description": "Text and icons on a solid action fill (white on green in light, near-black on Lime in dark).",
+      "light": {
+        "$value": "{color.white}"
+      },
+      "dark": {
+        "$value": "{color.neutral.12}"
+      }
+    },
+    "onBrand": {
+      "$description": "Text on surface.brand (Kale). Cashew on Kale, as in the CTA rules (https://docs.instacart.com/developer_platform_api/guide/concepts/design/cta_design).",
+      "light": {
+        "$value": "{color.cashew.2}"
+      },
+      "dark": {
+        "$value": "{color.cashew.2}"
+      }
+    },
+    "link": {
+      "$description": "Inline links. Instacart shows most links as plain body text; a link that must look like a link uses green. #0D720D, not #108910, so it passes on the subtle fill too.",
+      "light": {
+        "$value": "{color.green.10}"
+      },
+      "dark": {
+        "$value": "{color.green.7}"
+      }
+    },
+    "linkHover": {
+      "$description": "A link being hovered.",
+      "light": {
+        "$value": "{color.green.11}"
+      },
+      "dark": {
+        "$value": "{color.green.6}"
+      }
+    },
+    "brand": {
+      "$description": "Green text such as \"Delivery by 7:30am\". The live site uses #108910 (4.56:1 on white); we use #0D720D so it also passes on the subtle fill (#108910 is 4.25:1 there).",
+      "light": {
+        "$value": "{color.green.10}"
+      },
+      "dark": {
+        "$value": "{color.green.7}"
+      }
+    }
+  },
+  "border": {
+    "$type": "color",
+    "default": {
+      "$description": "Card borders and dividers (measured: 1px #E8E9EB on cards).",
+      "light": {
+        "$value": "{color.neutral.3}"
+      },
+      "dark": {
+        "$value": "{color.neutral.9}"
+      }
+    },
+    "strong": {
+      "$description": "Control borders: outline button, search field (measured #C7C8CD).",
+      "light": {
+        "$value": "{color.neutral.5}"
+      },
+      "dark": {
+        "$value": "{color.neutral.8}"
+      }
+    },
+    "brand": {
+      "$description": "A selected item's edge.",
+      "light": {
+        "$value": "{color.green.9}"
+      },
+      "dark": {
+        "$value": "{color.green.8}"
+      }
+    }
+  },
+  "action": {
+    "$type": "color",
+    "primary": {
+      "$description": "The main action: \"Add to cart\", \"Sign up\", checkout. Light is Instacart's button green #108910 with white text (measured). Dark is ours: Lime with near-black text.",
+      "bg": {
+        "light": {
+          "$value": "{color.green.9}"
+        },
+        "dark": {
+          "$value": "{color.green.8}"
+        }
+      },
+      "bgHover": {
+        "light": {
+          "$value": "{color.green.10}"
+        },
+        "dark": {
+          "$value": "{color.green.7}"
+        }
+      },
+      "bgActive": {
+        "light": {
+          "$value": "{color.green.11}"
+        },
+        "dark": {
+          "$value": "{color.green.6}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.white}"
+        },
+        "dark": {
+          "$value": "{color.neutral.12}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.green.9}"
+        },
+        "dark": {
+          "$value": "{color.green.8}"
+        }
+      }
+    },
+    "secondary": {
+      "$description": "A grey filled button: \"Show all\", \"View more\" (measured #E8E9EB fill, #242529 text).",
+      "bg": {
+        "light": {
+          "$value": "{color.neutral.3}"
+        },
+        "dark": {
+          "$value": "{color.neutral.9}"
+        }
+      },
+      "bgHover": {
+        "light": {
+          "$value": "{color.neutral.4}"
+        },
+        "dark": {
+          "$value": "{color.neutral.8}"
+        }
+      },
+      "bgActive": {
+        "light": {
+          "$value": "{color.neutral.5}"
+        },
+        "dark": {
+          "$value": "{color.neutral.7}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.neutral.10}"
+        },
+        "dark": {
+          "$value": "{color.neutral.1}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.neutral.3}"
+        },
+        "dark": {
+          "$value": "{color.neutral.9}"
+        }
+      }
+    },
+    "tertiary": {
+      "$description": "The outline button: \"Log in\" (measured: white fill, 1px #C7C8CD border). Its resting fill is transparent so it sits on any surface.",
+      "bg": {
+        "light": {
+          "$value": "{color.transparent}"
+        },
+        "dark": {
+          "$value": "{color.transparent}"
+        }
+      },
+      "bgHover": {
+        "light": {
+          "$value": "{color.neutral.2}"
+        },
+        "dark": {
+          "$value": "{color.neutral.10}"
+        }
+      },
+      "bgActive": {
+        "light": {
+          "$value": "{color.neutral.3}"
+        },
+        "dark": {
+          "$value": "{color.neutral.9}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.neutral.10}"
+        },
+        "dark": {
+          "$value": "{color.neutral.2}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.neutral.5}"
+        },
+        "dark": {
+          "$value": "{color.neutral.8}"
+        }
+      }
+    },
+    "danger": {
+      "$description": "A destructive action: \"Remove\", \"Cancel order\". #BB1C1B, not #DE3534: white on #DE3534 is 4.50:1, too close to the line.",
+      "bg": {
+        "light": {
+          "$value": "{color.red.10}"
+        },
+        "dark": {
+          "$value": "{color.red.10}"
+        }
+      },
+      "bgHover": {
+        "light": {
+          "$value": "{color.red.11}"
+        },
+        "dark": {
+          "$value": "{color.red.11}"
+        }
+      },
+      "bgActive": {
+        "light": {
+          "$value": "{color.red.12}"
+        },
+        "dark": {
+          "$value": "{color.red.12}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.white}"
+        },
+        "dark": {
+          "$value": "{color.white}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.red.10}"
+        },
+        "dark": {
+          "$value": "{color.red.10}"
+        }
+      }
+    },
+    "neutral": {
+      "$description": "A dark, high-emphasis but not-green control: the selected \"All\" chip (measured #242529 fill, white text). Flips to light in dark.",
+      "bg": {
+        "light": {
+          "$value": "{color.neutral.10}"
+        },
+        "dark": {
+          "$value": "{color.neutral.2}"
+        }
+      },
+      "bgHover": {
+        "light": {
+          "$value": "{color.neutral.9}"
+        },
+        "dark": {
+          "$value": "{color.neutral.3}"
+        }
+      },
+      "bgActive": {
+        "light": {
+          "$value": "{color.neutral.11}"
+        },
+        "dark": {
+          "$value": "{color.neutral.4}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.neutral.1}"
+        },
+        "dark": {
+          "$value": "{color.neutral.10}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.neutral.10}"
+        },
+        "dark": {
+          "$value": "{color.neutral.2}"
+        }
+      }
+    },
+    "disabled": {
+      "$description": "Any disabled action. Not contrast-gated: WCAG exempts disabled controls.",
+      "bg": {
+        "light": {
+          "$value": "{color.neutral.2}"
+        },
+        "dark": {
+          "$value": "{color.neutral.10}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.neutral.6}"
+        },
+        "dark": {
+          "$value": "{color.neutral.8}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.neutral.3}"
+        },
+        "dark": {
+          "$value": "{color.neutral.9}"
+        }
+      }
+    }
+  },
+  "status": {
+    "$type": "color",
+    "success": {
+      "$description": "Success. Instacart's success token is its brand green (measured).",
+      "bg": {
+        "light": {
+          "$value": "{color.green.2}"
+        },
+        "dark": {
+          "$value": "{color.green.12}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.green.11}"
+        },
+        "dark": {
+          "$value": "{color.green.7}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.green.5}"
+        },
+        "dark": {
+          "$value": "{color.green.10}"
+        }
+      }
+    },
+    "warning": {
+      "$description": "Warning. Instacart's amber #FFA500 fails as text (1.97:1), so the text is a dark amber and the amber itself is the border.",
+      "bg": {
+        "light": {
+          "$value": "{color.amber.2}"
+        },
+        "dark": {
+          "$value": "{color.amber.12}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.amber.12}"
+        },
+        "dark": {
+          "$value": "{color.amber.8}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.amber.8}"
+        },
+        "dark": {
+          "$value": "{color.amber.10}"
+        }
+      }
+    },
+    "danger": {
+      "$description": "Danger and errors (Instacart \"detrimental\", measured).",
+      "bg": {
+        "light": {
+          "$value": "{color.red.2}"
+        },
+        "dark": {
+          "$value": "{color.red.12}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.red.10}"
+        },
+        "dark": {
+          "$value": "{color.red.6}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.red.5}"
+        },
+        "dark": {
+          "$value": "{color.red.10}"
+        }
+      }
+    },
+    "info": {
+      "$description": "Information. NOT AN INSTACART VALUE: our own blue (Instacart has no info colour).",
+      "bg": {
+        "light": {
+          "$value": "{color.blue.2}"
+        },
+        "dark": {
+          "$value": "{color.blue.12}"
+        }
+      },
+      "fg": {
+        "light": {
+          "$value": "{color.blue.10}"
+        },
+        "dark": {
+          "$value": "{color.blue.6}"
+        }
+      },
+      "border": {
+        "light": {
+          "$value": "{color.blue.5}"
+        },
+        "dark": {
+          "$value": "{color.blue.10}"
+        }
+      }
+    }
+  },
+  "focus": {
+    "$type": "color",
+    "ring": {
+      "$description": "The keyboard focus outline. Gated at 3:1 against the surfaces (a UI shape, not text). Ours: Instacart's focus style was not measured.",
+      "light": {
+        "$value": "{color.green.9}"
+      },
+      "dark": {
+        "$value": "{color.green.7}"
+      }
+    }
+  }
+}

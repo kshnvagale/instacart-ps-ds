@@ -1,0 +1,24 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Tier 3: control sizes shared by Button, IconButton, Input and friends. Emitted without the `component` prefix: --control-height-md.",
+  "component": {
+    "control": {
+      "height": {
+        "$type": "dimension",
+        "$description": "Instacart button heights (measured, brand/brand.md, Shape): 36px \"Add\", 40px \"Log in\" and \"Show all\", 48px \"Log in\" on the product page, 56px \"Add to cart\" and the home search field.",
+        "sm": {
+          "$value": "36px"
+        },
+        "md": {
+          "$value": "40px"
+        },
+        "lg": {
+          "$value": "48px"
+        },
+        "xl": {
+          "$value": "56px"
+        }
+      }
+    }
+  }
+}

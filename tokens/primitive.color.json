@@ -1,0 +1,406 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Primitive colours. Written by scripts/generate-ramps.mjs: change an anchor there and re-run it, do not hand-edit a ramp. Components never read these; only semantic.color.json does. Every anchor is an Instacart value with its source; every other step says how it was generated.",
+  "color": {
+    "$type": "color",
+    "green": {
+      "1": {
+        "$value": "#F6FDF6",
+        "$description": "ANCHOR. --ids-color-brand-primary-extra-light (measured token, https://www.instacart.com/)"
+      },
+      "2": {
+        "$value": "#E9FBE9",
+        "$description": "ANCHOR. --ids-color-brand-primary-light (measured token, https://www.instacart.com/)"
+      },
+      "3": {
+        "$value": "#CBEFCB",
+        "$description": "generated: OKLCH interpolation between step 2 and step 8"
+      },
+      "4": {
+        "$value": "#ADE2AC",
+        "$description": "generated: OKLCH interpolation between step 2 and step 8"
+      },
+      "5": {
+        "$value": "#8ED68D",
+        "$description": "generated: OKLCH interpolation between step 2 and step 8"
+      },
+      "6": {
+        "$value": "#6EC86C",
+        "$description": "generated: OKLCH interpolation between step 2 and step 8"
+      },
+      "7": {
+        "$value": "#49BB47",
+        "$description": "generated: OKLCH interpolation between step 2 and step 8"
+      },
+      "8": {
+        "$value": "#0AAD0A",
+        "$description": "ANCHOR. Lime, brand guide (published, https://heyitsinstacart.com/color). Fill and dark-mode action only: 3.00:1 on white, so never text on light."
+      },
+      "9": {
+        "$value": "#108910",
+        "$description": "ANCHOR. --ids-color-brand-primary-regular (measured token, https://www.instacart.com/). The light-mode action and green text colour: 4.56:1 with white."
+      },
+      "10": {
+        "$value": "#0D720D",
+        "$description": "ANCHOR. --ids-color-brand-primary-dark (measured token, https://www.instacart.com/)"
+      },
+      "11": {
+        "$value": "#0A610A",
+        "$description": "ANCHOR. --ids-color-brand-primary-extra-dark (measured token, https://www.instacart.com/)"
+      },
+      "12": {
+        "$value": "#163614",
+        "$description": "generated: our OKLCH end point oklch(0.3 0.07 142.5)"
+      },
+      "$description": "Instacart green. Anchors are the IDS brand-primary tokens and the brand guide's Lime, all from brand/brand.md. Steps 3-7 and 12 are generated (OKLCH interpolation)."
+    },
+    "orange": {
+      "1": {
+        "$value": "#FFF9F4",
+        "$description": "generated: our OKLCH end point oklch(0.985 0.012 60)"
+      },
+      "2": {
+        "$value": "#FFEADB",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "3": {
+        "$value": "#FFDBC3",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "4": {
+        "$value": "#FFCCAB",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "5": {
+        "$value": "#FFBC92",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "6": {
+        "$value": "#FFAB78",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "7": {
+        "$value": "#FF995E",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "8": {
+        "$value": "#FF8640",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "9": {
+        "$value": "#FF7009",
+        "$description": "ANCHOR. Carrot, brand guide (published, https://heyitsinstacart.com/color) and the logo SVG fill"
+      },
+      "10": {
+        "$value": "#C45713",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "11": {
+        "$value": "#8D3F14",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "12": {
+        "$value": "#592810",
+        "$description": "generated: our OKLCH end point oklch(0.34 0.08 45)"
+      },
+      "$description": "Instacart Carrot. The only anchor is Carrot (step 9). Every other step is generated (OKLCH interpolation toward our own pale and dark end points). Spot colour only: the brand guide says never body copy."
+    },
+    "neutral": {
+      "1": {
+        "$value": "#FFFFFF",
+        "$description": "ANCHOR. --ids-color-system-grayscale-00 (measured token)"
+      },
+      "2": {
+        "$value": "#F6F7F8",
+        "$description": "ANCHOR. --ids-color-system-grayscale-10 (measured token): quiet fills, search field"
+      },
+      "3": {
+        "$value": "#E8E9EB",
+        "$description": "ANCHOR. --ids-color-system-grayscale-20 (measured token): secondary button fill, card borders"
+      },
+      "4": {
+        "$value": "#D8D8DC",
+        "$description": "generated: OKLCH interpolation between step 3 and step 5"
+      },
+      "5": {
+        "$value": "#C7C8CD",
+        "$description": "ANCHOR. --ids-color-system-grayscale-30 (measured token): outline button and field borders"
+      },
+      "6": {
+        "$value": "#8F939B",
+        "$description": "ANCHOR. --ids-color-system-grayscale-40 (measured token). 3.08:1 on white: icons and placeholders only, never text."
+      },
+      "7": {
+        "$value": "#72767E",
+        "$description": "ANCHOR. --ids-color-system-grayscale-50 (measured token): secondary text on the aisle page"
+      },
+      "8": {
+        "$value": "#56595E",
+        "$description": "ANCHOR. --ids-color-system-grayscale-60 (measured token): secondary text on the product page"
+      },
+      "9": {
+        "$value": "#343538",
+        "$description": "ANCHOR. --ids-color-system-grayscale-70 (measured token): main body text"
+      },
+      "10": {
+        "$value": "#242529",
+        "$description": "ANCHOR. --ids-color-system-grayscale-80 (measured token): headings, button text on grey"
+      },
+      "11": {
+        "$value": "#191A1C",
+        "$description": "ANCHOR. --ids-color-system-grayscale-90 (measured token)"
+      },
+      "12": {
+        "$value": "#0B0C0D",
+        "$description": "ANCHOR. --ids-color-system-grayscale-99 (measured token)"
+      },
+      "$description": "Cool UI greys. Every step except 4 is an IDS grayscale token measured on https://www.instacart.com/ (brand/brand.md, \"Greys\"). Step 4 is generated (OKLCH interpolation between 3 and 5), for hover fills."
+    },
+    "red": {
+      "1": {
+        "$value": "#FEFBFB",
+        "$description": "generated: our OKLCH end point oklch(0.99 0.006 20)"
+      },
+      "2": {
+        "$value": "#FEF0F0",
+        "$description": "ANCHOR. --ids-color-system-feedback-detrimental-light (measured token, https://www.instacart.com/)"
+      },
+      "3": {
+        "$value": "#FDD8D7",
+        "$description": "generated: OKLCH interpolation between step 2 and step 9"
+      },
+      "4": {
+        "$value": "#FBBFBE",
+        "$description": "generated: OKLCH interpolation between step 2 and step 9"
+      },
+      "5": {
+        "$value": "#F8A7A4",
+        "$description": "generated: OKLCH interpolation between step 2 and step 9"
+      },
+      "6": {
+        "$value": "#F38E8A",
+        "$description": "generated: OKLCH interpolation between step 2 and step 9"
+      },
+      "7": {
+        "$value": "#ED746F",
+        "$description": "generated: OKLCH interpolation between step 2 and step 9"
+      },
+      "8": {
+        "$value": "#E65853",
+        "$description": "generated: OKLCH interpolation between step 2 and step 9"
+      },
+      "9": {
+        "$value": "#DE3534",
+        "$description": "ANCHOR. --ids-color-system-feedback-detrimental-regular (measured token, https://www.instacart.com/)"
+      },
+      "10": {
+        "$value": "#BB1C1B",
+        "$description": "ANCHOR. --ids-color-system-feedback-detrimental-dark (measured token, https://www.instacart.com/)"
+      },
+      "11": {
+        "$value": "#AC1615",
+        "$description": "ANCHOR. --ids-color-system-feedback-detrimental-extra-dark (measured token, https://www.instacart.com/)"
+      },
+      "12": {
+        "$value": "#5C1717",
+        "$description": "generated: our OKLCH end point oklch(0.32 0.1 25)"
+      },
+      "$description": "Danger. Anchors are the IDS feedback-detrimental tokens (brand/brand.md, \"Status colours\"). Steps 1, 3-8 and 12 are generated (OKLCH interpolation)."
+    },
+    "amber": {
+      "1": {
+        "$value": "#FFFBF4",
+        "$description": "generated: our OKLCH end point oklch(0.99 0.02 85)"
+      },
+      "2": {
+        "$value": "#FFF3DD",
+        "$description": "generated: OKLCH interpolation between step 1 and step 8"
+      },
+      "3": {
+        "$value": "#FFEBC4",
+        "$description": "generated: OKLCH interpolation between step 1 and step 8"
+      },
+      "4": {
+        "$value": "#FFE3AB",
+        "$description": "generated: OKLCH interpolation between step 1 and step 8"
+      },
+      "5": {
+        "$value": "#FFDA92",
+        "$description": "generated: OKLCH interpolation between step 1 and step 8"
+      },
+      "6": {
+        "$value": "#FFD176",
+        "$description": "generated: OKLCH interpolation between step 1 and step 8"
+      },
+      "7": {
+        "$value": "#FFC854",
+        "$description": "generated: OKLCH interpolation between step 1 and step 8"
+      },
+      "8": {
+        "$value": "#FFBE1D",
+        "$description": "ANCHOR. --ids-color-system-feedback-alert-light (measured token, https://www.instacart.com/)"
+      },
+      "9": {
+        "$value": "#FFA500",
+        "$description": "ANCHOR. --ids-color-system-feedback-alert-regular (measured token, https://www.instacart.com/)"
+      },
+      "10": {
+        "$value": "#C57C16",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "11": {
+        "$value": "#8D5617",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "12": {
+        "$value": "#573312",
+        "$description": "generated: our OKLCH end point oklch(0.36 0.07 60)"
+      },
+      "$description": "Warning. Anchors are the IDS feedback-alert tokens (brand/brand.md, \"Status colours\"). Every other step is generated (OKLCH interpolation). Amber is a FILL: warning text uses the dark generated steps."
+    },
+    "yellow": {
+      "1": {
+        "$value": "#FFFEF5",
+        "$description": "generated: our OKLCH end point oklch(0.995 0.02 100)"
+      },
+      "2": {
+        "$value": "#FFFBDE",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "3": {
+        "$value": "#FFF7C9",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "4": {
+        "$value": "#FEF3B5",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "5": {
+        "$value": "#FEEFA0",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "6": {
+        "$value": "#FEEA8A",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "7": {
+        "$value": "#FEE671",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "8": {
+        "$value": "#FFE153",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "9": {
+        "$value": "#FFDC23",
+        "$description": "ANCHOR. --ids-color-brand-max-light (measured token, https://www.instacart.com/). The brand guide's Banana is #FFE200; the live UI uses this one."
+      },
+      "10": {
+        "$value": "#C5A31A",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "11": {
+        "$value": "#8B6E14",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "12": {
+        "$value": "#533F0D",
+        "$description": "generated: our OKLCH end point oklch(0.38 0.07 85)"
+      },
+      "$description": "Deal and sale highlight. The only anchor is step 9, the yellow behind sale prices and deal tags. Every other step is generated (OKLCH interpolation)."
+    },
+    "blue": {
+      "1": {
+        "$value": "#F7FAFF",
+        "$description": "generated: our OKLCH end point oklch(0.985 0.01 255)"
+      },
+      "2": {
+        "$value": "#DAE9FC",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "3": {
+        "$value": "#BFD7F7",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "4": {
+        "$value": "#A5C6F2",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "5": {
+        "$value": "#8BB4EC",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "6": {
+        "$value": "#71A2E6",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "7": {
+        "$value": "#5690DF",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "8": {
+        "$value": "#3B7DD8",
+        "$description": "generated: OKLCH interpolation between step 1 and step 9"
+      },
+      "9": {
+        "$value": "#1B6AD1",
+        "$description": "ANCHOR. chosen by us, NOT an Instacart value: a mid blue that passes 5.21:1 with white"
+      },
+      "10": {
+        "$value": "#1A54A7",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "11": {
+        "$value": "#163F80",
+        "$description": "generated: OKLCH interpolation between step 9 and step 12"
+      },
+      "12": {
+        "$value": "#102C5A",
+        "$description": "generated: our OKLCH end point oklch(0.3 0.09 260)"
+      },
+      "$description": "Info. NOT AN INSTACART VALUE: Instacart ships no info colour (brand/brand.md, Decisions). This whole ramp is ours, generated in OKLCH around one chosen anchor, and is used only for the info status."
+    },
+    "kale": {
+      "1": {
+        "$value": "#EDF7F4",
+        "$description": "ANCHOR. --ids-color-brand-secondary-light (measured token, https://www.instacart.com/)"
+      },
+      "2": {
+        "$value": "#003D29",
+        "$description": "ANCHOR. Kale, brand guide (published, https://heyitsinstacart.com/color) and --ids-color-brand-secondary-regular"
+      },
+      "3": {
+        "$value": "#003121",
+        "$description": "ANCHOR. --ids-color-brand-secondary-dark (measured token, https://www.instacart.com/)"
+      },
+      "4": {
+        "$value": "#001810",
+        "$description": "ANCHOR. --ids-color-brand-secondary-extra-dark (measured token, https://www.instacart.com/)"
+      },
+      "$description": "Kale, the deep brand green, and its IDS brand-secondary family. Hero bands, the dark CTA."
+    },
+    "cashew": {
+      "1": {
+        "$value": "#F7F5F0",
+        "$description": "ANCHOR. --ids-color-brand-tertiary-light (measured token, https://www.instacart.com/): the home header band"
+      },
+      "2": {
+        "$value": "#FAF1E5",
+        "$description": "ANCHOR. Cashew, brand guide (published, https://heyitsinstacart.com/color) and --ids-color-brand-tertiary-regular"
+      },
+      "3": {
+        "$value": "#EFE9E1",
+        "$description": "ANCHOR. --ids-color-brand-tertiary-dark (measured token, https://www.instacart.com/)"
+      },
+      "$description": "Cashew, the warm brand surface, and its IDS brand-tertiary family. Brand surfaces (banners) only; UI greys are the cool neutral ramp."
+    },
+    "white": {
+      "$value": "#FFFFFF",
+      "$description": "Pure white. Text on a solid green or red fill."
+    },
+    "transparent": {
+      "$value": "#00000000",
+      "$description": "No fill."
+    }
+  }
+}

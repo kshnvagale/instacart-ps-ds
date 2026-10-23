@@ -1,0 +1,115 @@
+<!doctype html>
+<!-- Real Claude Design export made WITHOUT the skill (2026-10-23): looked broken in the canvas because `class` on x-imports overwrote the components' own classes. -->
+<html lang="en" data-brand="sst" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Notification settings</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/ssxui/styles.css">
+<script src="ds/ssxui/_ds_bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div data-brand="sst" data-theme="light" class="bg-page text-content font-sans min-h-screen px-gutter py-12">
+<main class="max-w-panel-lg mx-auto flex flex-col gap-8">
+
+<header class="flex flex-col gap-3">
+<x-import component-from-global-scope="SsxUi.Heading" as="h1" size="1">Notification settings</x-import>
+<x-import component-from-global-scope="SsxUi.Text" tone="secondary">Choose how SST reaches you about classes, deadlines and campus updates.</x-import>
+<div role="status" class="flex items-center gap-2">
+<x-import component-from-global-scope="SsxUi.StatusDot" tone="danger" pulse="{{yes}}"></x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="span" size="sm">Live class in progress</x-import>
+</div>
+</header>
+
+<section data-elevation="raised" class="bg-surface-raised border border-border-subtle rounded-xl shadow-1 p-8 flex flex-col gap-8">
+
+<div class="flex flex-col gap-6">
+<x-import component-from-global-scope="SsxUi.Heading" as="h2" size="3">Contact details</x-import>
+
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="email">Email address</x-import>
+<x-import component-from-global-scope="SsxUi.Badge" tone="success" size="sm">Verified</x-import>
+</div>
+<!-- expect: component-class -->
+<x-import component-from-global-scope="SsxUi.Input" id="email" type="email" default-value="aarav.krishnan@scaler.com" class="w-full"></x-import>
+</div>
+
+<div class="flex flex-col gap-2">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="mobile">Mobile number</x-import>
+<!-- expect: component-class -->
+<x-import component-from-global-scope="SsxUi.PhoneInput" id="mobile" default-country="IN" default-value="+919845021174" class="w-full"></x-import>
+</div>
+
+<div class="flex flex-col gap-2">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="campus">Preferred campus</x-import>
+<x-import component-from-global-scope="SsxUi.Select" default-value="blr">
+<!-- expect: component-class -->
+<x-import component-from-global-scope="SsxUi.SelectTrigger" id="campus" class="w-full">
+<x-import component-from-global-scope="SsxUi.SelectValue" placeholder="Choose a campus"></x-import>
+</x-import>
+<x-import component-from-global-scope="SsxUi.SelectContent">
+<x-import component-from-global-scope="SsxUi.SelectItem" value="blr">Bengaluru — Electronic City</x-import>
+<x-import component-from-global-scope="SsxUi.SelectItem" value="campus-2">[Campus 2]</x-import>
+<x-import component-from-global-scope="SsxUi.SelectItem" value="campus-3">[Campus 3]</x-import>
+</x-import>
+</x-import>
+</div>
+</div>
+
+<div class="flex flex-col gap-2 border-t border-border-subtle pt-6">
+<x-import component-from-global-scope="SsxUi.Heading" as="h2" size="3">Instant alerts</x-import>
+<x-import component-from-global-scope="SsxUi.Text" size="sm" tone="secondary">Turn a channel on or off. Changes apply right away.</x-import>
+
+<div class="flex items-center justify-between gap-6 py-4 border-b border-border-subtle">
+<div class="flex flex-col gap-1 min-w-0">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="sw-email">Email</x-import>
+<x-import component-from-global-scope="SsxUi.Text" id="sw-email-help" size="sm" tone="secondary">Class reminders and assignment deadlines in your inbox.</x-import>
+</div>
+<!-- expect: component-class -->
+<x-import component-from-global-scope="SsxUi.Switch" id="sw-email" default-checked="{{yes}}" aria-describedby="sw-email-help" class="shrink-0"></x-import>
+</div>
+
+<div class="flex items-center justify-between gap-6 py-4 border-b border-border-subtle">
+<div class="flex flex-col gap-1 min-w-0">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="sw-sms">SMS</x-import>
+<x-import component-from-global-scope="SsxUi.Text" id="sw-sms-help" size="sm" tone="secondary">Short texts when a class starts or its time changes.</x-import>
+</div>
+<!-- expect: component-class -->
+<x-import component-from-global-scope="SsxUi.Switch" id="sw-sms" aria-describedby="sw-sms-help" class="shrink-0"></x-import>
+</div>
+
+<div class="flex items-center justify-between gap-6 py-4">
+<div class="flex flex-col gap-1 min-w-0">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="sw-whatsapp">WhatsApp</x-import>
+<x-import component-from-global-scope="SsxUi.Text" id="sw-whatsapp-help" size="sm" tone="secondary">Campus updates and mentor replies on WhatsApp.</x-import>
+</div>
+<!-- expect: component-class -->
+<x-import component-from-global-scope="SsxUi.Switch" id="sw-whatsapp" default-checked="{{yes}}" aria-describedby="sw-whatsapp-help" class="shrink-0"></x-import>
+</div>
+</div>
+
+<div class="flex flex-wrap items-center justify-end gap-3 border-t border-border-subtle pt-6">
+<x-import component-from-global-scope="SsxUi.Button" variant="secondary">Cancel</x-import>
+<x-import component-from-global-scope="SsxUi.Button" variant="primary">Save changes</x-import>
+</div>
+
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1180}}'>
+class Component extends DCLogic {
+renderVals() {
+return { yes: true };
+}
+}
+</script>
+</body>
+</html>

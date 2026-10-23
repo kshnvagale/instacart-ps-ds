@@ -1,0 +1,125 @@
+<!doctype html>
+<!-- First real Claude Design export (2026-10-23): the notification settings artboard, verbatim apart from these comments. -->
+<html lang="en" data-brand="sst" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Notification settings</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="ds/ssxui/styles.css">
+<link rel="stylesheet" href="ds/ssxui/fonts/fonts.css">
+<link rel="stylesheet" href="ds/ssxui/_ds_bundle.css">
+<script src="ds/ssxui/_ds_bundle.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div data-brand="sst" data-theme="light" class="bg-page text-content font-sans min-h-screen w-full">
+<main class="mx-auto max-w-panel-xl px-gutter py-12 flex flex-col gap-8">
+
+<header class="flex flex-col gap-3">
+<x-import component-from-global-scope="SsxUi.Heading" as="h1" size="1">Notification settings</x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="p" tone="secondary">Choose where SST reaches you about classes, deadlines and campus updates.</x-import>
+<div class="flex items-center gap-2" role="status">
+<x-import component-from-global-scope="SsxUi.StatusDot" tone="danger" pulse="{{yes}}"></x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="span" size="sm">Live class in progress</x-import>
+</div>
+</header>
+
+<section data-elevation="raised" aria-labelledby="card-title" class="bg-surface rounded-xl border border-hair border-border-subtle shadow-1 flex flex-col">
+
+<div class="p-8 flex flex-col gap-6">
+<div class="flex flex-col gap-1">
+<x-import component-from-global-scope="SsxUi.Heading" as="h2" size="3" id="card-title">Contact details</x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="p" size="sm" tone="secondary">Where your alerts are sent.</x-import>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6">
+<div class="flex flex-col gap-2 sm:col-span-2">
+<div class="flex items-center gap-2">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="email" size="sm">Email</x-import>
+<x-import component-from-global-scope="SsxUi.Badge" tone="success" size="sm">Verified</x-import>
+</div>
+<!-- Lowercase `autocomplete`: the prop is autoComplete, written auto-complete in a canvas. -->
+<!-- expect: prop-type -->
+<x-import component-from-global-scope="SsxUi.Input" id="email" type="email" default-value="priya.raman@scaler.com" autocomplete="email"></x-import>
+</div>
+
+<div class="flex flex-col gap-2">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="mobile" size="sm">Mobile number</x-import>
+<x-import component-from-global-scope="SsxUi.PhoneInput" id="mobile" default-country="IN" default-value="+919845021174"></x-import>
+</div>
+
+<div class="flex flex-col gap-2">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="campus" size="sm">Preferred campus</x-import>
+<x-import component-from-global-scope="SsxUi.Select" default-value="blr">
+<x-import component-from-global-scope="SsxUi.SelectTrigger" id="campus">
+<x-import component-from-global-scope="SsxUi.SelectValue" placeholder="Choose a campus"></x-import>
+</x-import>
+<x-import component-from-global-scope="SsxUi.SelectContent">
+<x-import component-from-global-scope="SsxUi.SelectItem" value="blr">Bengaluru — Electronic City</x-import>
+<x-import component-from-global-scope="SsxUi.SelectItem" value="other">[OTHER CAMPUS]</x-import>
+</x-import>
+</x-import>
+</div>
+</div>
+</div>
+
+<x-import component-from-global-scope="SsxUi.Divider" decorative="{{yes}}"></x-import>
+
+<div class="p-8 flex flex-col gap-6">
+<div class="flex flex-col gap-1">
+<x-import component-from-global-scope="SsxUi.Heading" as="h2" size="3">Instant alerts</x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="p" size="sm" tone="secondary">Changes apply right away.</x-import>
+</div>
+
+<div class="flex flex-col gap-6">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1 min-w-0">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="alert-email">Email</x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="p" size="sm" tone="secondary" id="alert-email-help">Class reminders and assignment deadlines in your inbox.</x-import>
+</div>
+<x-import component-from-global-scope="SsxUi.Switch" id="alert-email" default-checked="{{yes}}" aria-describedby="alert-email-help"></x-import>
+</div>
+
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1 min-w-0">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="alert-sms">SMS</x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="p" size="sm" tone="secondary" id="alert-sms-help">A short text when a class starts or is rescheduled.</x-import>
+</div>
+<x-import component-from-global-scope="SsxUi.Switch" id="alert-sms" aria-describedby="alert-sms-help"></x-import>
+</div>
+
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1 min-w-0">
+<x-import component-from-global-scope="SsxUi.Text" as="label" html-for="alert-whatsapp">WhatsApp</x-import>
+<x-import component-from-global-scope="SsxUi.Text" as="p" size="sm" tone="secondary" id="alert-whatsapp-help">Batch announcements and mentor replies on WhatsApp.</x-import>
+</div>
+<x-import component-from-global-scope="SsxUi.Switch" id="alert-whatsapp" default-checked="{{yes}}" aria-describedby="alert-whatsapp-help"></x-import>
+</div>
+</div>
+</div>
+
+<x-import component-from-global-scope="SsxUi.Divider" decorative="{{yes}}"></x-import>
+
+<div class="px-8 py-4 flex flex-wrap items-center justify-end gap-3">
+<x-import component-from-global-scope="SsxUi.Button" variant="secondary">Cancel</x-import>
+<x-import component-from-global-scope="SsxUi.Button" variant="primary">Save changes</x-import>
+</div>
+
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1040}}'>
+class Component extends DCLogic {
+renderVals() {
+return { yes: true };
+}
+}
+</script>
+</body>
+</html>

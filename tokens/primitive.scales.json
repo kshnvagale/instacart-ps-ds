@@ -1,0 +1,500 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Non-colour primitives. Hand-authored. Each scale is short and CLOSED: theme.css switches off Tailwind's own scales, so a step that is not listed here does not compile (p-7 emits nothing). Sizes are authored in px and emitted in rem. Source for measured values: brand/brand.md.",
+  "space": {
+    "$type": "dimension",
+    "$description": "4px base unit. The steps match Instacart's own spacing tokens (--ids-system-space-4/8/12/16/24/32/40/48, measured on https://www.instacart.com/) plus 2px, 20px and 64px. There is deliberately NO step 7 (28px), and no 9, 11, 14 or 15: if it is not here, it does not compile.",
+    "0": {
+      "$value": "0px"
+    },
+    "px": {
+      "$value": "1px",
+      "$description": "a hairline offset. Stays px."
+    },
+    "0.5": {
+      "$value": "2px",
+      "$description": "computed (ours): optical nudges inside small controls"
+    },
+    "1": {
+      "$value": "4px",
+      "$description": "--ids-system-space-4 (measured token). Icon to label."
+    },
+    "2": {
+      "$value": "8px",
+      "$description": "--ids-system-space-8 (measured token)"
+    },
+    "3": {
+      "$value": "12px",
+      "$description": "--ids-system-space-12 (measured token)"
+    },
+    "4": {
+      "$value": "16px",
+      "$description": "--ids-system-space-16 (measured token). The default gap."
+    },
+    "5": {
+      "$value": "20px",
+      "$description": "computed (ours): 4px grid, between 16 and 24"
+    },
+    "6": {
+      "$value": "24px",
+      "$description": "--ids-system-space-24 (measured token)"
+    },
+    "8": {
+      "$value": "32px",
+      "$description": "--ids-system-space-32 (measured token)"
+    },
+    "10": {
+      "$value": "40px",
+      "$description": "--ids-system-space-40 (measured token)"
+    },
+    "12": {
+      "$value": "48px",
+      "$description": "--ids-system-space-48 (measured token)"
+    },
+    "16": {
+      "$value": "64px",
+      "$description": "computed (ours): section spacing"
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "Instacart's radius tokens --ids-system-radius-0/4/8/12/24 (measured on https://www.instacart.com/), plus full for pills.",
+    "none": {
+      "$value": "0px"
+    },
+    "sm": {
+      "$value": "4px",
+      "$description": "--ids-system-radius-4 (measured token)"
+    },
+    "md": {
+      "$value": "8px",
+      "$description": "--ids-system-radius-8 (measured token). Search fields, retailer tiles."
+    },
+    "lg": {
+      "$value": "12px",
+      "$description": "--ids-system-radius-12 (measured token). Cards, product tiles, quantity field."
+    },
+    "xl": {
+      "$value": "24px",
+      "$description": "--ids-system-radius-24 (measured token)"
+    },
+    "full": {
+      "$value": "9999px",
+      "$description": "a pill. Every Instacart button and chip is fully round (measured). Stays px."
+    }
+  },
+  "borderWidth": {
+    "$type": "dimension",
+    "$description": "Border widths. Stay px so a hairline stays one pixel at any text size. (Named borderWidth, not border, so a width never shares a namespace with the border colours: --border-width-hair vs --border-default.)",
+    "hair": {
+      "$value": "1px",
+      "$description": "card and field borders (measured: 1px on cards, fields and dividers)"
+    },
+    "thick": {
+      "$value": "2px",
+      "$description": "computed (ours): selected or emphasised edges"
+    }
+  },
+  "focus": {
+    "$type": "dimension",
+    "$description": "The one focus outline. Ours: Instacart's focus style was not measured.",
+    "width": {
+      "$value": "2px"
+    },
+    "offset": {
+      "$value": "2px"
+    }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": [
+          "DM Sans Variable",
+          "DM Sans",
+          "Arial",
+          "sans-serif"
+        ],
+        "$description": "DM Sans stands in for Instacart Sans, which is proprietary (brand/brand.md, Decisions). Arial is Instacart's own fallback (measured)."
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "$description": "The four weights we allow. Instacart's UI uses 400 and 600, with 700 on a few large headings (measured). 500 is ours, for emphasis inside running text.",
+      "regular": {
+        "$value": 400
+      },
+      "medium": {
+        "$value": 500
+      },
+      "semibold": {
+        "$value": 600
+      },
+      "bold": {
+        "$value": 700
+      }
+    }
+  },
+  "type": {
+    "$description": "Composite type roles, used as `type-<role>` utilities. Each sets size and line height together, because line height depends on size. Headings and labels also set weight; running-text roles leave weight to inherit. The floor is 12px: no role goes smaller. Sizes come from the live site (brand/brand.md, Typeface): 14px is the most common UI size, 16px for buttons and fields, 20/24/28px section headings, 44px/700 the aisle H1.",
+    "display": {
+      "$description": "The one big page title (the aisle H1, measured 44px / 700).",
+      "size": {
+        "$type": "dimension",
+        "$value": "44px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "52px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.bold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "-0.02em"
+      }
+    },
+    "h1": {
+      "$description": "Page heading (measured section headings up to 28px).",
+      "size": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "36px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.bold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "-0.01em"
+      }
+    },
+    "h2": {
+      "$description": "Section heading, e.g. \"Often Bought With\" (measured 24px).",
+      "size": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "32px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "-0.01em"
+      }
+    },
+    "h3": {
+      "$description": "Sub-section or card group heading (measured 20px).",
+      "size": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "title": {
+      "$description": "A card or product title (measured 17px / 600; rounded to 16px for the 4px grid).",
+      "size": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "22px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "body-lg": {
+      "$description": "Larger running text, field text (measured 16px).",
+      "size": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "body": {
+      "$description": "Default running text (measured 14px, the most common size on all three pages).",
+      "size": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "body-sm": {
+      "$description": "Secondary running text: delivery times, stock status.",
+      "size": {
+        "$type": "dimension",
+        "$value": "13px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "18px"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "caption": {
+      "$description": "12px, the floor: captions, per-unit prices, fine print (\"Service and other fees apply.\").",
+      "size": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "label": {
+      "$description": "Control text: chips, small buttons (measured 14px / 600).",
+      "size": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    },
+    "label-lg": {
+      "$description": "Button text at md and lg (measured 16px / 600, e.g. \"Add to cart\").",
+      "size": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "leading": {
+        "$type": "dimension",
+        "$value": "24px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}"
+      },
+      "tracking": {
+        "$type": "dimension",
+        "$value": "0em"
+      }
+    }
+  },
+  "size": {
+    "$type": "dimension",
+    "$description": "Fixed sizes that are not spacing.",
+    "icon": {
+      "sm": {
+        "$value": "16px",
+        "$description": "icons beside delivery text (measured)"
+      },
+      "md": {
+        "$value": "20px",
+        "$description": "computed (ours): icons inside sm and md buttons"
+      },
+      "lg": {
+        "$value": "24px",
+        "$description": "UI icons (measured: 24 x 24 viewBox)"
+      }
+    }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "$description": "Ours: Instacart's durations were not measured. Under prefers-reduced-motion they collapse to 1ms (tokens.generated.css).",
+      "fast": {
+        "$value": "120ms",
+        "$description": "hover and press colour changes"
+      },
+      "normal": {
+        "$value": "200ms",
+        "$description": "small movements, a switch thumb"
+      },
+      "slow": {
+        "$value": "320ms",
+        "$description": "larger panels entering"
+      }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$description": "Instacart's own easing tokens (measured on https://www.instacart.com/), plus linear.",
+      "standard": {
+        "$value": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "$description": "Instacart \"smooth\" (measured token)"
+      },
+      "elevated": {
+        "$value": [
+          0,
+          1.25,
+          0.6,
+          1
+        ],
+        "$description": "Instacart \"elevated\" (measured token): a slight overshoot"
+      },
+      "bounce": {
+        "$value": [
+          0,
+          1.7,
+          0.4,
+          0.9
+        ],
+        "$description": "Instacart \"bounce\" (measured token): for delight moments only, e.g. an item landing in the cart"
+      },
+      "linear": {
+        "$value": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "$description": "spinners and progress"
+      }
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Elevation. Instacart uses shadows sparingly and lets borders do most of the work (measured). Named by job, not by size, on purpose: Tailwind's shadow-sm/md/lg must stay dead.",
+    "raised": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "8px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0.08)"
+      },
+      "$description": "a card that lifts (measured: the most common shadow)"
+    },
+    "popover": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "2px",
+        "blur": "12px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0.10)"
+      },
+      "$description": "menus and popovers (measured)"
+    },
+    "overlay": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "16px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0.16)"
+      },
+      "$description": "dialogs and larger overlays (measured)"
+    },
+    "inset": {
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "2px",
+        "blur": "4px",
+        "spread": "0px",
+        "color": "rgba(0, 0, 0, 0.05)",
+        "inset": true
+      },
+      "$description": "a pressed field (measured)"
+    }
+  },
+  "z": {
+    "$type": "number",
+    "$description": "Stacking order. Ours. Named layers, so nobody writes z-[9999].",
+    "base": {
+      "$value": 0
+    },
+    "raised": {
+      "$value": 10,
+      "$description": "a card lifted over its neighbours"
+    },
+    "sticky": {
+      "$value": 100,
+      "$description": "sticky header, cart bar"
+    },
+    "overlay": {
+      "$value": 200,
+      "$description": "dialog and its scrim"
+    },
+    "popover": {
+      "$value": 300,
+      "$description": "menus, popovers"
+    },
+    "toast": {
+      "$value": 400
+    },
+    "tooltip": {
+      "$value": 500
+    }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Viewport widths for sm: md: lg: xl:. Ours (Instacart's were not measured). Stay px: rem in a media query does not follow the root font size. theme.css repeats them as literals, and closed-scale.test.ts fails if the two drift.",
+    "sm": {
+      "$value": "640px"
+    },
+    "md": {
+      "$value": "768px"
+    },
+    "lg": {
+      "$value": "1024px"
+    },
+    "xl": {
+      "$value": "1280px"
+    }
+  }
+}

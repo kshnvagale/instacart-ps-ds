@@ -1,0 +1,13 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "Tier 3: the Spinner. Emitted without the `component` prefix: --spinner-duration.",
+  "component": {
+    "spinner": {
+      "duration": {
+        "$type": "duration",
+        "$value": "800ms",
+        "$description": "Ours: one full turn of the Spinner arc. Slower than the motion scale on purpose: a wait indicator should feel calm, not urgent. It is NOT a motion.duration token, so it does not collapse under reduced motion (a wait indicator that stops looks like a frozen page); components.css slows it instead."
+      }
+    }
+  }
+}
